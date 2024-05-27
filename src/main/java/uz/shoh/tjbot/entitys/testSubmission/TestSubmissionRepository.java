@@ -7,5 +7,4 @@ import uz.shoh.tjbot.entitys.testSubmission.entity.TestSubmission;
 @Repository
 public interface TestSubmissionRepository extends JpaRepository<TestSubmission, String> {
     TestSubmission findByUserIdAndTestId(String userId, Integer testId);
-
 }

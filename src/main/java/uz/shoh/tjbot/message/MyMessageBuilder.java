@@ -388,7 +388,6 @@ public class MyMessageBuilder {
     }
 
     public static SendMessage helpMessage(String chatId) {
-        //sendMessage.setParseMode("markdown");
         return new SendMessage(
                 chatId,
                 """

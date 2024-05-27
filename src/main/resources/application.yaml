@@ -3,9 +3,12 @@ bot:
   token: 6430040250:AAGEQZS4zAgETE70C-bRs81f7p_hVNovJWA
 spring:
   datasource:
-    url: jdbc:postgresql://ccaml3dimis7eh.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d7c7to1o2nehnn
-    username: ufj6q0vcg0pqv6
-    password: pb052069f517af9d9d786fd4a9a0d9d0d87c69e4c78bfe0db1dd1c49f892d17f1
+    #url: jdbc:postgresql://ccaml3dimis7eh.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d7c7to1o2nehnn
+    #username: ufj6q0vcg0pqv6
+    #password: pb052069f517af9d9d786fd4a9a0d9d0d87c69e4c78bfe0db1dd1c49f892d17f1
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 2211
   jpa:
     hibernate:
       ddl-auto: update
