@@ -79,7 +79,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>TjBotApplication</mainClass>
+                            <mainClass>uz.shoh.tjbot.TjBotApplication</mainClass>
                             <name>TJBot</name>
                         </program>
                     </programs>
