@@ -28,6 +28,5 @@ public class TestSubmission {
     @Column(name = "total_answers_count")
     private int totalAnswersCount;
     private String wrongAnswers;
-
     private LocalDateTime submissionTime;
 }

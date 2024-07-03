@@ -1,1 +1,1 @@
-worker: sh target/bin/TjBotApplication
+worker: sh target/bin/TjBot

@@ -5,29 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.shoh.tjbot.entitys.testSubmission.entity.TestSubmission;
+import uz.shoh.tjbot.entitys.testSubmission.entity.BlocTestSubmission;
 import uz.shoh.tjbot.entitys.user.entiry.User;
 
 import java.util.List;
 
+/**
+ * @author shahzod-rozzoqov
+ */
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Test {
+public class BlocTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String subjectName;
-    private String keys;
     private boolean status;
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "bloc_test_id")
-    private BlocTest blocTest;
-    @OneToMany(mappedBy = "test", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private List<TestSubmission> submissions;
+    @OneToMany(mappedBy = "blocTest", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    private List<Test> tests;
+    @OneToMany(mappedBy = "blocTest", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    private List<BlocTestSubmission> blocTestSubmissions;
 }

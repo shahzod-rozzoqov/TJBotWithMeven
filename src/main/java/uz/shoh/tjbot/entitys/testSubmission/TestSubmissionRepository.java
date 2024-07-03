@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import uz.shoh.tjbot.entitys.testSubmission.entity.TestSubmission;
 
 @Repository
-public interface TestSubmissionRepository extends JpaRepository<TestSubmission, String> {
+public interface TestSubmissionRepository extends JpaRepository<TestSubmission, Integer> {
     TestSubmission findByUserIdAndTestId(String userId, Integer testId);
 }
