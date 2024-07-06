@@ -39,6 +39,16 @@ public class UpdateHandler {
     private final BlockTestSubmissionRepository blockTestSubmissionRepository;
     private final DefaultAbsSender sender;
     private final HashMap<String, ArrayList<Test>> map = new HashMap<>();
+
+    private static float calculateTotalScore(BlocTestSubmission submission) {
+        float compulsoryScore = 1.1f * (submission.getFirstCompulsorySubjectCorrectAnswersCount() +
+                submission.getSecondCompulsorySubjectCorrectAnswersCount() +
+                submission.getThirdCompulsorySubjectCorrectAnswersCount());
+        float majorScore = 3.1f * submission.getFirstMajorSubjectCorrectAnswersCount() +
+                2.1f * submission.getSecondMajorSubjectCorrectAnswersCount();
+        return compulsoryScore + majorScore;
+    }
+
     @SneakyThrows
     @Transactional
     public void handler(Update update) {
@@ -48,15 +58,6 @@ public class UpdateHandler {
             String userId = update.getCallbackQuery().getFrom().getId().toString();
             handleCallbackQuery(update, userId);
         }
-    }
-
-    private static float calculateTotalScore(BlocTestSubmission submission) {
-        float compulsoryScore = 1.1f * (submission.getFirstCompulsorySubjectCorrectAnswersCount() +
-                submission.getSecondCompulsorySubjectCorrectAnswersCount() +
-                submission.getThirdCompulsorySubjectCorrectAnswersCount());
-        float majorScore = 3.1f * submission.getFirstMajorSubjectCorrectAnswersCount() +
-                2.1f * submission.getSecondMajorSubjectCorrectAnswersCount();
-        return compulsoryScore + majorScore;
     }
 
     private void handleTextMessage(Update update) throws TelegramApiException {
@@ -257,7 +258,7 @@ public class UpdateHandler {
                     testRepository.save(test);
                     userRepository.save(user);
 
-                sender.execute(MyMessageBuilder.generatedTestMessage(chatId, test));
+                    sender.execute(MyMessageBuilder.generatedTestMessage(chatId, test));
                 }
             }
         }

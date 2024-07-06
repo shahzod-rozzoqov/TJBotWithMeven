@@ -3,9 +3,9 @@ bot:
   token: 6430040250:AAGEQZS4zAgETE70C-bRs81f7p_hVNovJWA
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/postgres
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://ccaml3dimis7eh.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d8vf7sfc5bk2qp
+    username: u3ah8tf13pphi6
+    password: p80990bf310d605fee829aec8713a48db3c6c1de9c075719ff58ca80386a5afc2
   jpa:
     hibernate:
       ddl-auto: update
